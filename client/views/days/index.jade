@@ -1,0 +1,13 @@
+template(name="day_index")
+  unless created_an_entry_today
+    .card
+      .card-content
+        {{>day_form}}
+
+  each days
+    .card
+      .card-content
+        span {{description}}
+        p 
+          a(href="/days/{{day}}") {{longDateFormat day}}
+      

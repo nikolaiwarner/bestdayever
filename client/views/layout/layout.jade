@@ -1,0 +1,26 @@
+head
+  meta(charset="utf-8")
+  meta(content="IE=edge", http-equiv="X-UA-Compatible")
+  meta(content="width=device-width, initial-scale=1", name="viewport")
+  <!--  Android 5 Chrome Color-->
+  meta(name="theme-color", content="#EE6E73")
+  title Best of Today
+
+template(name="layout")
+  header
+    nav(role='navigation')
+      .container
+        .nav-wrapper
+          a#logo-container.brand-logo(href='/') Best of Today         
+          ul#nav-mobile.side-nav.fixed
+            +loginButtons
+            li
+              a(href='/today') Today
+            li
+              a(href='/days') My Days
+          a.button-collapse(href='#', data-activates='nav-mobile')
+            i.mdi-navigation-menu
+
+  main
+    .container
+      +yield

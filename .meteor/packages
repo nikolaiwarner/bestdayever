@@ -1,0 +1,19 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+underscore
+iron:router
+coffeescript
+less
+mquandalle:jade
+accounts-google
+accounts-ui
+jquery
+fastclick
+aldeed:autoform
+aldeed:collection2
+d0minikk:materialize-meteor
+mrt:moment

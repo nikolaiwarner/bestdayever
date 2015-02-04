@@ -1,0 +1,9 @@
+template(name="day_show")
+  h2.header {{longDateFormat day.day}}
+
+  .card
+    .card-content
+      span {{day.description}}
+  a(href="/days/#{day.day}/edit") 
+    i.mdi.mdi-action-settings
+    | Edit
