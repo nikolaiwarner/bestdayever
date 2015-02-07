@@ -2,7 +2,7 @@ template(name="day_card")
   .card
     .card-action
       a(href="/days/{{day}}") {{longDateFormat day}}            
-      a.right(href="/days/#{day}/edit") 
+      a.right.blue-grey-text(href="/days/#{day}/edit") 
         i.mdi.mdi-editor-mode-edit
     .card-content            
       p.flow-text {{description}}
