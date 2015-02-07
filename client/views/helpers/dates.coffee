@@ -4,5 +4,4 @@ UI.registerHelper "dateFormat", (context, options={}) ->
   moment(date).format(options.format)
 
 UI.registerHelper "longDateFormat", (context, options={}) ->
-  return null unless context
   moment(context).format('LL')

@@ -13,8 +13,8 @@ AutoForm.hooks
         if error
           toast(error.message, 5000)
         else
-          console.log error, result, template
-          day = Days.findOne(result)
+          day_string = template.data.doc.day
+          day = Days.findOne({day: day_string})
           day_string = dateFormat(day.day)
           Router.go("/days/#{day_string}")
           toast("Saved.", 5000)
@@ -27,4 +27,4 @@ AutoForm.hooks
 
 Template.day_form.helpers
   method: ->
-    if @day && @day._id then 'update' else 'insert'
+    if @day then 'update' else 'insert'

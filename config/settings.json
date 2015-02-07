@@ -1,0 +1,10 @@
+{
+  "public" : {
+    "ga": {
+      "account":"UA-XXXXXXX-Y",
+      "trackInterests": true,
+      "trackInPage": true,
+      "debug": true 
+    }
+  }
+}

@@ -5,15 +5,15 @@
 
 standard-app-packages
 underscore
+jquery
 iron:router
 coffeescript
 less
 mquandalle:jade
 accounts-google
-accounts-ui
-jquery
 fastclick
 aldeed:autoform
 aldeed:collection2
 d0minikk:materialize-meteor
 mrt:moment
+datariot:ganalytics

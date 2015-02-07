@@ -5,9 +5,4 @@ template(name="day_index")
         | {{>day_form}}
 
   each days
-    .card
-      .card-content
-        span {{description}}
-        p 
-          a(href="/days/{{day}}") {{longDateFormat day}}
-      
+    | {{>day_card}}

@@ -2,12 +2,20 @@ body {
   background-color: #fcfcfc;
 }
 
-header, main, footer {
-  padding-left: 240px;
+header {
+  margin-bottom: 40px;
 }
 
-@media only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
+.card {
+  a {
+    color: #60D097;
+
+    &:hover {
+      color: #1b5e20;
+    }
   }
+}
+
+textarea.materialize-textarea {
+  margin-top: 15px;
 }
