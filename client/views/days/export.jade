@@ -1,0 +1,16 @@
+template(name="day_export")
+  .card
+    .card-content 
+      span.card-title.deep-orange-text Export all of your posts
+    .card-action
+      a.export.csv(href='#') Export as CSV
+      a.export.json(href='#') Export as JSON
+      
+  .card
+    .card-content
+      span.card-title.deep-orange-text Import posts
+      p You can import posts from the past via a CSV file. 
+      p Please format each row in the CSV as: date, post
+      
+      input.import.csv(type='file')
+      .btn.import.csv Import from CSV

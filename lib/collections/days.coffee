@@ -27,6 +27,7 @@ days_schema = new SimpleSchema
 
   day:
     type: String
+    index: 1
     denyUpdate: true
     autoValue: ->
       if @isInsert

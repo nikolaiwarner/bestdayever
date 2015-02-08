@@ -43,7 +43,6 @@ Router.route '/today',
   onBeforeAction: ->
     day_string = dateFormat()
     if Days.findOne({day: day_string})
-      # Router.go('/days/' + day_string)
       this.render('day_show')
     else
       this.next()
@@ -77,3 +76,11 @@ Router.route '/days/:_day_string/edit',
       day: day
     else
       Router.go('/')
+
+Router.route '/export',
+  name: 'day_export'
+  template: 'day_export'
+  waitOn: ->
+    Meteor.subscribe 'all_days_by_user', Meteor.userId()
+  data: ->
+    days: Days.find({userId: Meteor.userId()}, {sort: {createdAt: -1}})
