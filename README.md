@@ -1,6 +1,6 @@
-# bestoftoday
+# Best Day Ever
 
-let's remember what was great today!
+a microjournal for remembering the great moments of each day!
 
 ----
 
