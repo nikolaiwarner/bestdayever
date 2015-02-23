@@ -5,4 +5,5 @@ template(name="day_card")
       a.right.blue-grey-text(href="/days/#{day}/edit") 
         i.mdi.mdi-editor-mode-edit
     .card-content            
-      p {{description}}
+      +markdown 
+        {{description}}
