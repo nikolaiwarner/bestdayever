@@ -9,9 +9,6 @@ head
 template(name="layout")
   header
     .navbar-fixed
-      ul#username-dropdown.dropdown-content
-        li
-          a.signout(href='/signout') Sign Out 
       nav.deep-orange(role='navigation')
         .container
           .nav-wrapper
@@ -23,9 +20,9 @@ template(name="layout")
                 li
                   a(href='/everyday') The Past 
                 li
-                  a.dropdown-button(href='#', data-activates='username-dropdown') 
-                    | {{username}}
-                    i.mdi-navigation-arrow-drop-down.right
+                  a(href='/account') {{username}}                      
+                li
+                  a.signout(href='/signout') Sign Out 
               else        
                 li
                   a.signin(href='#') Sign In 

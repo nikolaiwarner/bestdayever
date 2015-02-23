@@ -1,6 +1,9 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  notFoundTemplate: 'page_notfound'
+
+Router.plugin 'dataNotFound', {notFoundTemplate: 'page_notfound'}
 
 Router.onBeforeAction ->
   $("body,html").scrollTop 0
@@ -13,6 +16,11 @@ Router.onBeforeAction (->
   else
     this.next()
 ), {except: ['page_landing']}
+
+# Subscribe on all routes
+Router.before ->
+  this.subscribe('userData')
+  this.next()
 
 Router.route '/signout',
   name: 'signout'
@@ -79,10 +87,11 @@ Router.route '/days/:_day_string/edit',
     else
       Router.go('/')
 
-Router.route '/export',
-  name: 'day_export'
-  template: 'day_export'
+Router.route '/account',
+  name: 'page_account'
+  template: 'page_account'
   waitOn: ->
     Meteor.subscribe 'all_days_by_user', Meteor.userId()
   data: ->
+    user: Meteor.user()
     days: Days.find({userId: Meteor.userId()}, {sort: {createdAt: -1}})

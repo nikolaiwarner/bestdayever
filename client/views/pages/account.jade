@@ -1,0 +1,23 @@
+template(name="page_account")
+  h4 Account Settings
+  .card    
+    .card-content
+      .center
+        img.avatar.circle(src="{{avatar_google}}")      
+        .card-title {{username}}
+      
+  .card
+    .card-content 
+      span.card-title Export all of your posts
+    .card-action
+      a.export.csv(href='#') Export as CSV
+      a.export.json(href='#') Export as JSON
+      
+  .card
+    .card-content
+      span.card-title Import posts
+      p You can import posts from the past via a CSV file. 
+      p Please format each row in the CSV as: date, post
+    .card-action
+      input.import.csv(type='file')
+      button.btn.import.csv Import from CSV
