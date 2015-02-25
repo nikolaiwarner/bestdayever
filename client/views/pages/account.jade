@@ -5,7 +5,14 @@ template(name="page_account")
       .center
         img.avatar.circle(src="{{avatar_google}}")      
         .card-title {{username}}
-      
+        
+  .card
+    .card-content 
+      span.card-title Timezone
+      select.timezone-select
+        each timezone_names
+          <option value="{{this}}" {{selectedIfEquals this current_timezone}}>{{this}}</option>
+                  
   .card
     .card-content 
       span.card-title Export all of your posts

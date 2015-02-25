@@ -9,6 +9,10 @@ clean_days_data_for_json_export = (days) ->
   return data
 
 Template.page_account.events
+  'change .timezone-select': ->
+    timezone = $('.timezone-select').val()
+    Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.timezone": timezone}})
+    toast("Timezone set to #{timezone}.", 5000)
   'click .account.remove_posts': (e) ->
     if window.confirm("This will remove all of your posts. Are you sure?")
       Meteor.call 'remove_all_posts_from_account', ->
@@ -45,9 +49,18 @@ Template.page_account.events
         else
           toast("There was an error importing the CSV file.", 5000)
 
+Template.page_account.rendered = ->
+  $('select').material_select()
+
 Template.page_account.helpers
   avatar_google: ->
     if @user && @user.services && @user.services.google
       @user.services.google.picture
+  current_timezone: ->
+    Meteor.user().profile.timezone
+  timezone_names: ->
+    moment.tz.names()
+  selectedIfEquals: (item, other_item) ->
+    if item == other_item then "selected" else ""
   username: ->
     @user.profile.name
