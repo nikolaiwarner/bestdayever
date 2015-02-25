@@ -9,6 +9,7 @@ template(name="page_account")
   .card
     .card-content 
       span.card-title Export all of your posts
+      p Download a copy of all of your posts.
     .card-action
       a.export.csv(href='#') Export as CSV
       a.export.json(href='#') Export as JSON
@@ -21,3 +22,11 @@ template(name="page_account")
     .card-action
       input.import.csv(type='file')
       button.btn.import.csv Import from CSV
+
+  .card
+    .card-content
+      span.card-title.red-text Danger zone
+      p Permanently remove all traces of you and your journal. You may want to export and download your posts first before touching the following buttons.
+    .card-action
+      a.account.remove_posts.red-text(href='#') Remove all posts
+      a.account.destroy_account.red-text(href='#') Destroy account and all posts

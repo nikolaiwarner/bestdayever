@@ -9,6 +9,14 @@ clean_days_data_for_json_export = (days) ->
   return data
 
 Template.page_account.events
+  'click .account.remove_posts': (e) ->
+    if window.confirm("This will remove all of your posts. Are you sure?")
+      Meteor.call 'remove_all_posts_from_account', ->
+        toast('All posts removed.', 5000)
+  'click .account.destroy_account': (e) ->
+    if window.confirm("This will remove all of your posts and destroy your account. Are you sure?")
+      Meteor.call 'destroy_account', ->
+        toast('All posts removed. Account destroyed. Goodbye!', 5000)
   'change input.import.csv': ->
     $('.btn.import.csv').show()
   'click .export.csv': (e) ->
@@ -33,12 +41,13 @@ Template.page_account.events
             if error
               console.log error
             else
-              toast("Imported posts!", 5000)
+              toast("Imported #{_.compact(result).length} posts!", 5000)
         else
           toast("There was an error importing the CSV file.", 5000)
 
 Template.page_account.helpers
   avatar_google: ->
-    @user.services.google.picture
+    if @user && @user.services && @user.services.google
+      @user.services.google.picture
   username: ->
     @user.profile.name
