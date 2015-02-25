@@ -3,9 +3,9 @@ Meteor.methods
     for row in data
       day =
         userId: Meteor.userId()
-        day: moment(row[0]).format('YYYY-MM-DD')
+        day: dateFormat(row[0])
         description: row[1]
-        createdAt: moment(row[0]).toDate()
+        createdAt: moment(dateFormat(row[0])).toDate()
       existing_post = Days.findOne({day: day.day})
       if existing_post
         console.log "Post exists already for this date."

@@ -1,7 +1,6 @@
-UI.registerHelper "dateFormat", (context, options={}) ->
-  return null unless context
-  options.format = options.format || "YYYY-MM-DD"
-  moment(date).format(options.format)
+UI.registerHelper "dateFormat", (date, options={}) ->
+  return null unless date
+  dateFormat(date, options.format)
 
-UI.registerHelper "longDateFormat", (context, options={}) ->
-  moment(context).format('LL')
+UI.registerHelper "longDateFormat", (date, options={}) ->
+  dateFormat(date, 'LL')

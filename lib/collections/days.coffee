@@ -31,7 +31,7 @@ days_schema = new SimpleSchema
     denyUpdate: true
     autoValue: ->
       if @isInsert
-        moment().format('YYYY-MM-DD')
+        dateFormat()
 
   description:
     type: String

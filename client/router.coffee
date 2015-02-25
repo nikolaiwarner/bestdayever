@@ -44,7 +44,7 @@ Router.route '/everyday',
     Meteor.subscribe 'days_by_user', Meteor.userId()
   data: ->
     days: Days.find({userId: Meteor.userId()}, {sort: {createdAt: -1}})
-    day_string: moment().format('YYYY-MM-DD')
+    day_string: dateFormat()
 
 Router.route '/today',
   name: 'day_new'
@@ -58,7 +58,7 @@ Router.route '/today',
   waitOn: ->
     Meteor.subscribe 'days_by_user', Meteor.userId()
   data: ->
-    day_string = moment().format('YYYY-MM-DD')
+    day_string = dateFormat()
     day: Days.findOne({day: day_string})
     day_string: day_string
 
