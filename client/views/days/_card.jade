@@ -1,9 +1,10 @@
 template(name="day_card")
-  .card
-    .card-action
-      a(href="/days/{{day}}") {{longDateFormat day}}            
-      a.right.blue-grey-text(href="/days/#{day}/edit") 
-        i.mdi.mdi-editor-mode-edit
-    .card-content            
-      +markdown 
-        {{description}}
+  .card.post
+    a.edit-button.tooltipped(href="/days/#{day}/edit" title="Edit" data-tooltip="Edit" data-position="left") 
+      i.mdi.mdi-editor-mode-edit
+    .card-content    
+      .card-title 
+        a(href="/days/{{day}}") {{longDateFormat day}}
+      .entry
+        +markdown 
+          {{description}}

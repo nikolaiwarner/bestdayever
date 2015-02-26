@@ -1,5 +1,9 @@
 template(name="day_edit")
-  .card
-    .card-content
-      a(href="/days/{{day.day}}") {{longDateFormat day.day}}
+  .card.post
+    .card-content      
+      .card-title
+        a(href="/days/{{day.day}}") {{longDateFormat day.day}}    
       +day_form
+    //- .card-action
+    //-   a.save(href="#") Done
+      

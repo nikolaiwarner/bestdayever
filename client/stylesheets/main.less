@@ -6,6 +6,18 @@ header {
   margin-bottom: 40px;
 }
 
+nav {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  .brand-logo {
+    font-size: 20px;
+  }
+
+  &, a, ul li a, .brand-logo {
+    color: #666;
+  }
+}
+
 .btn.import.csv {
   display: none;
 }
@@ -17,17 +29,30 @@ header {
 
 .card {
   a {
-    color: #60D097;
+    color: #666;
 
     &:hover {
-      color: #1b5e20;
+      color: #000;
+    }
+
+    &.edit-button {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      margin: 0;
+      color: #666;
+      opacity: 0.6;
+      
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
   .card-content {
     .card-title {
       &, a {
-        color: #1b5e20;
+        color: #999;
       }
     }
 
@@ -36,10 +61,31 @@ header {
       margin-left: 20px;
     }
   }
+
+  &.post {
+    .card-content {
+      .card-title {
+        line-height: 18px;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+      .entry {
+        font-size: 1.3rem;
+      }
+    }
+  }
 }
 
+textarea.materialize-textarea {
+  font-size: 1.3rem;
 
-// Hacks to fix Materialize:
+  &, &:focus {
+    overflow-y: hidden;
+    border-bottom: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
 
 .container {
   padding: 0;
@@ -51,7 +97,7 @@ header {
 
 .save-status {
   position: absolute;
-  top: 10px;
+  top: 18px;
   right: 20px;
   opacity: 0.5;
 }

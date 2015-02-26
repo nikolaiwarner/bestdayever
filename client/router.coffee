@@ -37,7 +37,7 @@ Router.route '/',
     else
       this.next()
 
-Router.route '/everyday',
+Router.route '/all-the-days',
   name: 'day_index'
   template: 'day_index'
   waitOn: ->
@@ -49,12 +49,6 @@ Router.route '/everyday',
 Router.route '/today',
   name: 'day_new'
   template: 'day_new'
-  onBeforeAction: ->
-    day_string = dateFormat()
-    if Days.findOne({day: day_string})
-      this.render('day_show')
-    else
-      this.next()
   waitOn: ->
     Meteor.subscribe 'days_by_user', Meteor.userId()
   data: ->

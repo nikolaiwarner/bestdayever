@@ -1,6 +1,3 @@
 template(name="day_index")
-  unless created_an_entry_today
-    | {{>day_new}}
-
   each days
     | {{>day_card}}
