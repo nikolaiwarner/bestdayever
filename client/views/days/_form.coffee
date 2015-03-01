@@ -19,3 +19,10 @@ Template.day_form.events
 
 Template.day_form.rendered = ->
   $('.tooltipped').tooltip({delay: 50})
+
+Template.day_form.helpers
+  entry: (description) ->
+    if $('.day_form .description').is(':focus')
+      $('.day_form .description').val()
+    else
+      description
