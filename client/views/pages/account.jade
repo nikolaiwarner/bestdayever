@@ -8,6 +8,15 @@ template(name="page_account")
         
   .card
     .card-content 
+      span.card-title Reminder
+      p Receive an email reminder encouraging you to write everyday.
+      select.reminder-time-select
+        <option value="">No reminder.</option>
+        each hours_in_a_day
+          <option value="{{this}}" {{selectedIfEquals this current_reminder_time}}>{{military_time_to_standard_time this}}</option>
+          
+  .card
+    .card-content 
       span.card-title Timezone
       select.timezone-select
         each timezone_names

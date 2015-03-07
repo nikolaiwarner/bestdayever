@@ -9,6 +9,10 @@ clean_days_data_for_json_export = (days) ->
   return data
 
 Template.page_account.events
+  'change .reminder-time-select': ->
+    reminder_time = $('.reminder-time-select').val()
+    Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.reminder_time": reminder_time}})
+    toast("Saved.", 5000)
   'change .timezone-select': ->
     timezone = $('.timezone-select').val()
     Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.timezone": timezone}})
@@ -56,8 +60,14 @@ Template.page_account.helpers
   avatar_google: ->
     if @user && @user.services && @user.services.google
       @user.services.google.picture
+  current_reminder_time: ->
+    parseInt(Meteor.user().profile.reminder_time, 10)
   current_timezone: ->
     Meteor.user().profile.timezone
+  hours_in_a_day: ->
+    [0..23]
+  military_time_to_standard_time: (hour) ->
+    moment().startOf('day').add(hour,"hours").format("ha")
   timezone_names: ->
     moment.tz.names()
   selectedIfEquals: (item, other_item) ->
