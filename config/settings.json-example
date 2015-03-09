@@ -2,7 +2,7 @@
   "mailgun": {
     "apiKey": "1234567890",
     "domain": "example.com",
-    "from_email": "hello@example.com"
+    "from_email": "Best Day Ever <hello@example.com>"
   },
   "public" : {
     "ga": {
