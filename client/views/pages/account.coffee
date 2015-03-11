@@ -17,6 +17,9 @@ Template.page_account.events
     timezone = $('.timezone-select').val()
     Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.timezone": timezone}})
     toast("Timezone set to #{timezone}.", 5000)
+  'click .reset-mail-key': ->
+    Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.mail_key": Meteor.uuid()}})
+    toast("Saved new mail key.", 5000)
   'click .account.remove_posts': (e) ->
     if window.confirm("This will remove all of your posts. Are you sure?")
       Meteor.call 'remove_all_posts_from_account', ->

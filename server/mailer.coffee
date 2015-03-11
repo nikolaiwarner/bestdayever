@@ -7,7 +7,7 @@ root.send_daily_reminder_email = ->
     if user.profile.reminder_time
       # is it time to send this user an email?
       if user.profile.reminder_time == moment().tz(user.profile.timezone).format('H')
-        from_email = Meteor.settings.mailgun.from_email
+        from_email = "Best Day Ever <bestdayever+#{user.profile.mail_key}@#{Meteor.settings.mailgun.domain}>"
         date = moment().tz(user.profile.timezone).format('LL')
         if to_email=user.services.google.email
           email =
@@ -16,6 +16,8 @@ root.send_daily_reminder_email = ->
             subject: "Writing reminder - #{date}"
             text: '''
               It's time to write about your day. Your best day ever!
+
+              Reply to this email to post to today's journal entry!
 
               http://bestdayever.nwarner.com
               '''

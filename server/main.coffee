@@ -7,4 +7,5 @@ Accounts.onCreateUser (options, user) ->
     user.profile = options.profile
   # Set default user values
   user.profile.timezone = 'America/New_York'
+  user.profile.mail_key = Meteor.uuid()
   return user
