@@ -1,4 +1,21 @@
 body {
+  height: 100%;
+  padding-bottom: 150px;
+}
+
+html, main, main .container, main .container {
+  height: 100%;
+
+  .card.post.new, .card.post.edit {
+    height: 100%;
+    padding-bottom: 50px;
+    .card-content, .day_form, .description {
+      height: 100%;
+    }
+  }
+}
+
+body {
   background-color: #fcfcfc;
 }
 
@@ -42,7 +59,7 @@ nav {
       margin: 0;
       color: #666;
       opacity: 0.6;
-      
+
       &:hover {
         opacity: 1;
       }
@@ -76,14 +93,12 @@ nav {
   }
 }
 
-textarea.materialize-textarea {
+textarea {
   font-size: 1.3rem;
+  border: 1px solid rgba(250, 250, 250, 0.7);
 
-  &, &:focus {
-    overflow-y: hidden;
-    border-bottom: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+  &:focus {
+    outline: 1px solid #efefef;
   }
 }
 

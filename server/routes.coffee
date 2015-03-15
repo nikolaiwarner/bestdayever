@@ -10,7 +10,10 @@ Router.route '/email-to-post',
     if user=Meteor.users.findOne({ "profile.mail_key": key, "services.google.email": sender })
       date_string = moment().tz(user.profile.timezone).format('YYYY-MM-DD')
       if day=Days.findOne({day: date_string})
-        entry = day.description + " " + body
+        if day.description
+          entry = day.description + " " + body
+        else
+          entry = body
         Days.update {_id: day._id}, {$set: {description: entry}}
       else
         day =
