@@ -34,14 +34,14 @@ Template.page_account.events
     data = clean_days_data_for_json_export(@days)
     csv = Papa.unparse(data)
     e.target.href = "data:text/csv;charset=utf-8," + escape(csv)
-    e.target.download = "best-of-today-export-#{dateFormat()}.csv"
+    e.target.download = "best-day-ever-export-#{dateFormat()}.csv"
 
   'click .export.json': (e) ->
     data = clean_days_data_for_json_export(@days)
     json = JSON.stringify(data)
     blob = new Blob([json], {type: "application/json"})
     e.target.href = URL.createObjectURL(blob)
-    e.target.download = "best-of-today-export-#{dateFormat()}.json"
+    e.target.download = "best-day-ever-export-#{dateFormat()}.json"
 
   'click .btn.import.csv': (e) ->
     results = Papa.parse $('input.import.csv')[0].files[0],
